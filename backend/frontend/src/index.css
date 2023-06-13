@@ -1,0 +1,189 @@
+:active, :hover, :focus {
+  outline: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  overflow-y: auto;
+  background-color: black;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+@font-face {
+  font-family: "comforta";   /*Can be any text*/
+  src: local("ComfotaaBold"),
+    url("./fonts/ComfortaaBold.ttf") format("truetype");
+}
+
+/* DARK THEME */
+
+html[data-theme='dark'] {
+  --input-text-color: white;
+}
+html[data-theme='dark'] .main-rightbar__list-theme {
+  filter: invert();
+}
+html[data-theme='dark'] .sign-rightbar__list-theme {
+  filter: invert();
+}
+html[data-theme='dark'] .signin-rightbar__list-theme {
+  filter: invert();
+}
+
+/* LIGHT THEME */
+
+html[data-theme='light'] .tasks-background {
+  opacity: 1;
+}
+html[data-theme='light'] .taskscontainer {
+  filter: invert();
+}
+html[data-theme='light'] .main-logo {
+  filter: invert();
+}
+html[data-theme='light'] .main-elementswrap {
+  filter: invert();
+}
+html[data-theme='light'] .sketch {
+  filter: invert();
+}
+
+/* REGWINDOW */
+html[data-theme='light'] .regwindow__titlediv {
+  filter: invert();
+}
+html[data-theme='light'] .regwindow__bar {
+  filter: invert();
+}
+html[data-theme='light'] .regwindow__form {
+  filter: invert();
+}
+html[data-theme='light'] .regwindow__formlastchild {
+  filter: invert();
+}
+html[data-theme='light'] .regwindow__formlast {
+  filter: invert();
+}
+html[data-theme='light'] .regwindow__regbtn {
+  filter: invert();
+}
+html[data-theme='light'] .regwindow__socials {
+  filter: invert();
+}
+html[data-theme='light'] .regwindow__elements {
+  border: 2px solid black;
+}
+html[data-theme='light'] .regwindow__leftarrow {
+  filter: invert();
+  background-color: black;
+}
+
+/* LOGWINDOW */
+html[data-theme='light'] .logwindow__titlediv {
+  filter: invert();
+}
+html[data-theme='light'] .logwindow__bar {
+  filter: invert();
+}
+html[data-theme='light'] .logwindow__form {
+  filter: invert();
+}
+html[data-theme='light'] .logwindow__formlastchild {
+  filter: invert();
+}
+html[data-theme='light'] .logform-btn {
+  filter: invert();
+}
+html[data-theme='light'] .logwindow__socials {
+  filter: invert();
+}
+html[data-theme='light'] .logwindow__elements {
+  border: 2px solid black;
+}
+html[data-theme='light'] .logwindow__leftarrow {
+  filter: invert();
+  background-color: black;
+}

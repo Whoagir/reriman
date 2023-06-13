@@ -1,0 +1,11 @@
+{% extends 'admin/change_form.html' %}
+
+{% block submit_buttons_bottom %}
+    {{ block.super }}
+    <div class="submit-row">
+        <input type="submit" value="Добавить потомка" name="_add_child">
+        {% if original.get_parent %}
+            <input type="submit" value="Добавить брата" name="_add_bro">
+        {% endif %}
+    </div>
+{% endblock %}

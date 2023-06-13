@@ -1,0 +1,12 @@
+{% extends 'admin/change_form.html' %}
+
+{% block submit_buttons_bottom %}
+    {{ block.super }}
+    <div class="submit-row">
+        {% if original.verified and original.image %}
+            <input type="submit" value="Перейти в редактор" name="_redirect_to_task_worker_editor">
+        {% else %}
+            Требуется добавить картинку задачи и проверить задачу
+        {% endif %}
+    </div>
+{% endblock %}

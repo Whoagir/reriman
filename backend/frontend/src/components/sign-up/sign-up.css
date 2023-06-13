@@ -1,0 +1,534 @@
+.regcontainer {
+    height: 100vh;
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.regwindow__forarrow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.regwindow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    width: 380px;
+    margin-bottom: 90px;
+    font-family: "comforta";
+}
+
+.regwindow__elements {
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(3px);
+    border-radius: 30px;
+    color: white;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0px 26px;
+}
+
+.regwindow__title {
+    margin-top: 25px;
+    font-size: 30px;
+}
+
+.regwindow__titlediv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PEOPLE BAR */
+
+.peoplemate {
+    transform: rotate(180deg);
+}
+
+.regwindow__bar {
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+}
+
+.regwindow__bar-mate {
+    margin-left: 1px;
+    border-left: 1px solid white;
+    border-right: 2px solid white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: 0.2s ease-in-out;
+    transform: rotate(180deg);
+}
+
+.regwindow__bar-mateanim {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.15) 50%, rgb(255, 255, 255) 50%) right;
+    background-size: 200%;
+}
+
+.regwindow__bar-parentanim {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.15) 50%, rgb(255, 255, 255) 50%) right;
+    background-size: 200%;
+}
+
+.regwindow__bar-parent {
+    border-left: 1px solid white;
+    border-right: 2px solid white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.regwindow__bar-teacher {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    transition: .15s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    text-decoration: none;
+    height: 43px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+}
+
+.regbar {
+    background-color: rgba(0, 0, 0, 0.13);
+    color: white;
+    text-decoration: none;
+    height: 43px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+    cursor: pointer;
+}
+
+/* BAR ANIMATIONS */
+
+.regwindow__bar-matebg {
+    background-color: #fff;
+    color: black;
+}
+
+.regwindow__bar-parentbg {
+    background-color: #fff;
+    color: black;
+}
+
+.regwindow__bar-teacherbg {
+    background-color: #fff;
+    color: black;
+}
+
+/* HUMAN HOVERS */
+
+.regwindow__bar-mateanim:hover {
+    background-position: left;
+    background-color: white;
+    color: black;
+    transition: .1s ease-in-out;
+}
+
+.regwindow__bar-teacheranim:hover {
+    background-color: white;
+    color: black;
+}
+
+.regwindow__bar-parentanim:hover {
+    background-position: left;
+    background-color: white;
+    color: black;
+    transition: .1s ease-in-out;
+}
+
+.regwindow__bar-teacher:hover {
+    cursor: pointer;
+}
+/* INPUT ПОЛЕ ВВОДА */
+
+.regwindow__forms {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 25px;
+    height: 166px;
+    width: 100%;
+    padding: 0px 13px;
+    font-size: 15px;
+}
+
+.regwindow__form {
+    background: rgba(217, 217, 217, 0.02);
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(1.5px);
+    border-radius: 17px;
+    min-width: none;
+}
+
+.regwindow__formlastchild {
+    background: rgba(217, 217, 217, 0.02);
+    width: 100%;
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(1.5px);
+    border-radius: 17px;
+    min-width: none;
+}
+
+.regwindow__formlast {
+    background: rgba(217, 217, 217, 0.02);
+    width: 100%;
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(1.5px);
+    border-radius: 17px;
+    min-width: none;
+}
+
+.regwindow__formwrap {
+    width: 100%;
+}
+
+.regwindow__formadd {
+    margin-top: 22px;
+}
+
+.inpcss2 {
+    width: 320px;
+    height: 35px;
+    background: transparent;
+    border: none;
+    font-family: "comforta";
+    color: white;
+    padding: 0px 10px;
+}
+
+/* LOG BUTTON */
+
+.regwindow__regbtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 17px;
+    width: 100%;
+    padding: 0px 13px;
+    margin-top: 30px;
+}
+
+.regwindow__regbtn-text {
+    text-decoration: none;
+    color: white;
+    padding: 15px 0px;
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 17px;
+    font-size: 20px;
+    backdrop-filter: blur(1.5px);
+    background: rgba(255, 255, 255, 0.02);
+    transition: .2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regwindow__regbtn-text:hover {
+    cursor: pointer;
+    background-color: white;
+    transition: .2s ease-in-out;
+}
+
+.regwindow__regbtn:hover .regwindow__regbtn-text {
+    color: black;
+    transition: .2s ease-in-out;
+}
+
+
+/* SOC BUTTONS */
+
+.regwindow__socials {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socdiv:hover {
+    cursor: pointer;
+}
+
+.regwindow__socials-google {
+    display: inline-block;
+    position: relative;
+    transition: .2s ease-in-out;
+    vertical-align: top;
+    overflow: hidden;
+    padding: 8px 10px 4px 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.regwindow__socials-google:hover:after {
+    width: 100%;
+}
+
+.regwindow__socials-google:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    -webkit-transition: 0.3s;
+    transition: 0.2s ease-in-out;
+    z-index: -1;
+}
+
+.regwindow__socials-vk {
+    transform: rotate(180deg);
+    display: inline-block;
+    position: relative;
+    transition: .2s ease-in-out;
+    border: 2px solid white;
+    vertical-align: top;
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.regwindow__socials-vk:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    -webkit-transition: 0.3s;
+    transition: 0.2s ease-in-out;
+    z-index: -1;
+}
+
+.regwindow__socials-vk:hover:after {
+    width: 100%;
+}
+
+.vk {
+    color: white;
+    transition: .2s ease-in-out;
+    transform: rotate(180deg);
+}
+
+.google {
+    color: white;
+    font-size: 25px;
+    transition: .2s ease-in-out;
+}
+
+.socdiv:hover {
+    background-color: white;
+    transition: .2s ease-in-out;
+}
+
+.socdiv:hover .socico {
+    color: black;
+    transition: .2s ease-in-out;
+}
+
+.regwindow__leftarrow {
+    backdrop-filter: blur(5px);
+    display: inline-block;
+    border: 1px solid white;
+    position: relative;
+    transition: .2s ease-in-out;
+    border-radius: 30px;
+    vertical-align: top;
+    overflow: hidden;
+    padding: 5px 5px 0px 5px;
+    margin-bottom: 7px;
+    transform: rotateZ(180deg);
+}
+
+.regwindow__leftarrowico {
+    color: white;
+    transform: rotateZ(180deg);
+    padding-bottom: 2.5px;
+    transition: .2s ease-in-out;
+}
+
+.regwindow__leftarrow:hover:after {
+    width: 100%;
+}
+
+.regwindow__leftarrow:hover .regwindow__leftarrowico {
+    color: black;
+    transition: .2s ease-in-out;
+}
+
+.regwindow__leftarrow:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    -webkit-transition: 0.3s;
+    transition: 0.2s ease-in-out;
+    z-index: -1;
+}
+
+.regwindow__leftarrowdiv {
+    width: 100%;
+    padding-left: 5px;
+    display: flex;
+}
+
+.regwindow__wrapper {
+    width: 100%;
+    padding-left: 2px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regform-btn {
+    width: 100%;
+    margin: 0px 10px;
+}
+
+.inp {
+    padding: 5px 10px;
+    font-family: "comforta";
+    background: rgba(217, 217, 217, 0.02);
+    width: 100%;
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(1.5px);
+    border-radius: 17px;
+    min-width: none;
+}
+.inp__errorlog {
+    font-size: 13px;
+    color: red;
+    padding-left: 10px;
+    position: absolute;
+}
+.inp__error2 {
+    font-size: 13px;
+    position: absolute;
+    top: 53%;
+    padding-left: 10px;
+    color: red;
+}
+
+.inp__error3 {
+    font-size: 13px;
+    position: absolute;
+    top: 66%;
+    padding-left: 10px;
+    color: red;
+}
+
+.human__error {
+    position: absolute;
+    top: 27%;
+    font-size: 14px;
+    color: red;
+}
+
+.sign-rightbar__list-theme {
+    display: flex;
+    justify-content: flex-end;
+    transform: scale(1.5);
+    align-items: center;
+    height: 40px;
+    width: 35px;
+    padding-bottom: 2px;
+}
+
+.sign-background {
+    width: 100%;
+    height: 100vh;
+    z-index: -100;
+    position: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 480px) {
+    .human__error {
+        top: 25.5%;
+    }
+    .regwindow {
+        width: 350px;
+    }
+    .regwindow__title {
+        font-size: 30px;
+    }
+    .regwindow__bar {
+        width: 300px;
+    }
+}
+@media (max-width: 420px) {
+    .regwindow {
+        width: 320px;
+    }
+    .regwindow__title {
+        font-size: 25px;
+    }
+    .regwindow__bar {
+        width: 270px;
+    }
+}
+@media (max-width: 400px) {
+    .regwindow {
+        width: 300px;
+    }
+    .regwindow__title {
+        font-size: 23px;
+    }
+    .regwindow__bar {
+        width: 250px;
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (max-width: 380px) {
+    .regwindow {
+        width: 280px;
+    }
+    .regbar {
+        font-size: 14px;
+    }
+    .regwindow__bar-teacher {
+        font-size: 14px;
+    }
+    .regwindow__title {
+        font-size: 21px;
+    }
+    .regwindow__bar {
+        width: 230px;
+    }
+}
