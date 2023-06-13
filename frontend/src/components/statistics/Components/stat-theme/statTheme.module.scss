@@ -1,0 +1,153 @@
+.main {
+    margin-top: 15px;
+    width: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 25px;
+    background: #22222244;
+    padding: 10px 20px;
+    @media (max-width: 550px) {
+        padding: 10px;
+    }
+    @media (max-width: 730px) {
+        &, .content {
+            border: 1px solid white;
+        }
+    }
+}
+
+@media (max-width: 1573px) {
+    .wrapperthemes {
+        display: block;
+    }
+}
+
+.left {
+    width: 100%;
+    @media screen and (max-width: 1573px) {
+        width: 100%;
+    }
+    margin-right: 5px;
+}
+
+.right {
+    width: 100%;
+    margin-left: 5px;
+
+    @media screen and (max-width: 1573px) {
+        width: 100%;
+    }
+}
+
+.nav-exit svg {
+    margin-right: 3px;
+}
+
+.left-content-nav {
+    width: 97%;
+}
+
+.left-nav-btns {
+    width: 50%;
+    p {
+        font-size: 14px;
+        padding: 3px 10px;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+    p:first-child {
+        border-left: 1px solid white;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    p:last-child {
+        border-right: 1px solid white;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+
+.content {
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.inputdiv {
+    background: #22222244;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding-left: 3px;
+    input {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+    }
+}
+
+
+.left-content-nav-right {
+    font-size: 13px;
+    overflow: hidden;
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.contentcontainer {
+    height: 430px;
+    padding-right: 3px;
+    overflow-y: scroll;
+}
+
+.contentcontainer {
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #eeeeee;
+        border-radius: 10px;
+        border: 3px solid rgb(49, 49, 49);
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgb(49, 49, 49);
+        border-radius: 10px;
+        padding: 5px;
+    }
+}
+
+.content-item {
+    background: rgba(217, 217, 217, 0.2);
+    border: 1px solid #ffffff;
+    border-radius: 7.5px;
+    height: 28px;
+    margin-top: 3px;
+    padding-left: 3px;
+    p {
+        white-space: nowrap;
+    }
+}
+
+.tasks {
+    width: 18%;
+}
+
+.proc {
+    width: 17%;
+}
+
+.time {
+    width: 15%;
+}
+
+// RIGHT
+.right-nav {
+    height: 29px;
+    p {
+        margin-left: 5px;
+    }
+}

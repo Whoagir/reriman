@@ -1,0 +1,80 @@
+.stat__container {
+    width: 100%;
+    margin-top: 17px;
+    height: 100vh;
+}
+
+.stat__navbar {
+    @media (max-width: 680px) {
+        border: 1px solid white;
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgba(131, 131, 131, 0.2);
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(3px);
+    border-radius: 9px;
+    width: 100%;
+    padding: 5px 7px;
+    @media (max-width: 674px) {
+        justify-content: center;
+        .stat__navbar-rate {
+            width: 100%;
+        }
+        .stat__navbar-btns {
+            margin-top: 5px;
+        }
+    }
+}
+
+.stat__navbar * {
+    color: white;
+}
+
+.stat__navbar-rate {
+    background: rgba(30, 30, 30, 0);
+    border: 1px solid #FFFFFF;
+    border-radius: 7px;
+    height: 35px;
+    padding: 0px 35px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2px;
+}
+.stat__navbar-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+        padding: 3px;
+    }
+    .stat__navbar-btn1 {
+        border-left: 1px solid white;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .stat__navbar-btn2 {
+        border-right: 1px solid white;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+.stat__navbar-btns button {
+    width: 100%;
+    background: rgba(30, 30, 30, 0);
+    border: none;
+    font-size: 14.5px;
+    padding: 3px 27.5px;
+}
+.stat__navbar-btns .stat-btn-selected {
+    background-color: white;
+    color: rgb(17, 17, 17);
+}

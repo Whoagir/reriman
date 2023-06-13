@@ -1,0 +1,133 @@
+.task {
+    background: rgba(131, 131, 131, 0.1);
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(1.5px);
+    border-radius: 20px;
+    margin-top: 10px;
+    @media (max-width: 680px) {
+        border: 1px solid white;
+    }
+
+    .top {
+        padding: 10px 10px 0px 10px;
+        border-bottom: 2px dashed white;
+
+        
+        @media (max-width: 680px) {
+            display: block;
+            .left {
+                .left-attemps {
+                    justify-content: center;
+                    div {
+                        margin-left: 10px;
+                    }
+                }
+            }
+            .image {
+                margin-bottom: 10px;
+            }
+        }
+
+        .title {
+            font-size: 25px;
+        }
+
+
+        .image img {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+        }
+
+        .left {
+            border-right: 2px dashed white;
+            padding: 0px 15px 15px 5px;
+            @media (max-width: 680px) {
+                border: none;
+                padding: 0px 0px 10px 0px;
+            }
+
+            .left-time,
+            .left-attemp {
+                border: 1px solid white;
+                margin-top: 10px;
+                border-radius: 7.5px;
+                padding: 5px;
+            }
+
+            .left-attemps {
+                padding: 5px;
+                div {
+                    background: rgba(131, 131, 131, 0.25);
+                    width: 25px;
+                    border: 1px solid white;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .right {
+            padding: 0px 15px;
+
+            @media (max-width: 680px) {
+                padding: 0px;
+            }
+
+            .right-footer {
+                margin-bottom: 10px;
+                font-size: 17.5px;
+                @media (max-width: 530px) {
+                    display: block;
+                    .right-footer-left {
+                        display: block;
+                    }
+                    .right-footer-right {
+                        margin-top: 10px;
+                        justify-content: space-between;
+                    }
+                }
+
+                .right-footer-left {
+                    border: 1px solid white;
+                    border-radius: 5px;
+                    padding: 0px 10px;
+                }
+
+                .difficulty {
+                    border: 1px solid white;
+                    border-radius: 5px;
+                    padding: 0px 7.5px;
+                    margin-right: 10px;
+                }
+
+                .show {
+                    background-color: #ffffffe0;
+                    border-radius: 5px;
+                    color: black;
+                    padding: 0px 5px;
+                    @media (max-width: 401px) {
+                        margin-top: 10px;
+                    }
+
+                    div {
+                        margin-left: 5px;
+                        padding: 3px;
+                        border-radius: 5px;
+                        background-color: #161616be;
+                        height: 23px;
+
+                        svg {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+        padding: 10px;
+        transform: translateY(-100%);
+    }
+}

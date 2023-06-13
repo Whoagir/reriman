@@ -1,0 +1,154 @@
+.main {
+    margin-top: 15px;
+    width: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 25px;
+    background: #22222244;
+    padding: 10px 20px;
+
+    @media (max-width: 550px) {
+        border: 1px solid rgb(255, 255, 255);
+        padding: 10px;
+    }
+        
+    .nav {
+        background: rgba(131, 131, 131, 0.1);
+        border: 2px solid #FFFFFF;
+        backdrop-filter: blur(1.5px);
+        border-radius: 20px;
+
+        @media (max-width: 680px) {
+            border: 1px solid white;
+        }
+
+        .nav-title {
+            padding: 10px 10px 0px 10px;
+            margin-bottom: 5px;
+
+            .nav-title-text {
+                font-size: 28px;
+            }
+
+            div {
+                border: 1px solid white;
+                border-radius: 10px;
+                background-color: #6e6e6e50;
+                padding: 3px 10px;
+                margin-bottom: 6px;
+            }
+        }
+
+        .nav-tags {
+            padding: 10px 10px 15px 10px;
+            border-bottom: 2px dashed #FFFFFF;
+
+            .nav-tags-item {
+                padding: 5px 10px;
+                border: 1px solid white;
+                border-radius: 7px;
+                font-size: 17.5px;
+                margin-left: 5px;
+                margin-top: 5px;
+            }
+        }
+
+        .nav-btns {
+            margin: 10px;
+
+            .navbtn svg {
+                margin-left: 15px;
+            }
+
+            .navbtn {
+                margin: 5px 10px 0px 0px;
+                border: 1px solid white;
+                padding: 3px 5px;
+                border-radius: 7px;
+                transition: .15s ease-in-out;
+
+                &:hover {
+                    background-color: #3131318e;
+                }
+
+                .navbtn-tasksnum {
+                    margin-left: 15px;
+                    background-color: #a8a8a848;
+                    padding: 0px 10px;
+                    border-radius: 5px;
+                    border: 1px solid white;
+
+                    svg {
+                        margin-left: 0;
+                    }
+
+                    .tasksnum {
+                        width: 40px;
+                        height: 100%;
+                        background: transparent;
+                        border: none;
+                        font-family: "comforta";
+                        color: white;
+                        padding: 1px 0px 0px 15px;
+                    }
+                }
+
+                .navbtn-answerview {
+                    margin-left: 15px;
+                    border-radius: 5px;
+                    padding: 0.1px;
+                    border: 1px solid white;
+
+                    button {
+                        border: none;
+                        font-size: 14px;
+                        width: 50%;
+                        padding: 0px 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-pagination {
+        margin-top: 10px;
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            @media (max-width: 400px) {
+                li {
+                    width: 31.5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                ul li button {
+                    transform: scale(0.85);
+                }
+            }
+        }
+    }
+
+    .bottom-pagination-skeleton {
+        margin-top: 10px;
+
+        span {
+            width: 30%;
+            height: 32px;
+            border-radius: 15px;
+        }
+    }
+
+    .bottom-taskitem-skeleton {
+        margin-top: 10px;
+
+        span {
+            height: 225px;
+            width: 100%;
+            border-radius: 30px;
+        }
+    }
+}

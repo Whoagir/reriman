@@ -1,0 +1,272 @@
+:active,
+:hover,
+:focus {
+    outline: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article>*+* {
+    margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+// ========================= КОНЕЦ СБРОСА СТИЛЕЙ =============================
+
+body {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #eeeeee;
+        border-radius: 10px;
+        border: 4px solid rgb(49, 49, 49);
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgb(49, 49, 49);
+        border-radius: 10px;
+        padding: 5px;
+    }
+    background-color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: "comforta";
+    src: local("ComfotaaBold"),
+        url("./fonts/ComfortaaBold.ttf") format("truetype");
+}
+
+// ====================== ГОТОВЫЕ СТИЛИ ===========================
+
+.df {
+    display: flex;
+
+    // JUSTIFY-CONTENT
+    &.jcc {justify-content: center;}
+    &.jcfe {justify-content: flex-end;}
+    &.jcfs {justify-content: flex-start;}
+    &.jcsa {justify-content: space-around;}
+    &.jcsb {justify-content: space-between;}
+    &.jcse {justify-content: space-evenly;}
+
+    // ALIGN-ITEMS
+    &.aic {align-items: center;}
+    &.aife {align-items: flex-end;}
+    &.aifs {align-items: flex-start;}
+
+    // FLEX-WRAP
+    &.fww {flex-wrap: wrap;}
+    &.fwwr {flex-wrap: wrap-reverse;}
+
+    // FLEX-DIREACTION
+    &.fdc {flex-direction: column;}
+    &.fdcr {flex-direction: column-reverse;}
+    &.fdr {flex-direction: row;}
+    &.fdrr {flex-direction: column-reverse;}
+}
+.tac {text-align: center;}
+.tdn {text-decoration: none;}
+.lsn {list-style: none;}
+.w100 {width: 100%;}
+.w50 {width: 50%;}
+.h100 {height: 100%;}
+.h100vh {height: 100vh;}
+.h50 {height: 50%;};
+.cw {color: white;}
+.cp {cursor: pointer;}
+.br1w {border-right: 1px solid white;}
+.dib {display: inline-block;}
+.oh {overflow: hidden;}
+.toe {text-overflow: ellipsis;}
+.wsnw {white-space: nowrap;}
+.posa {position: absolute;}
+
+/* DARK THEME */
+
+html[data-theme='dark'] {
+    --input-text-color: white;
+}
+
+html[data-theme='dark'] .main-rightbar__list-theme {
+    filter: invert(100%);
+}
+
+html[data-theme='dark'] .sign-rightbar__list-theme {
+    filter: invert(100%);
+}
+
+html[data-theme='dark'] .signin-rightbar__list-theme {
+    filter: invert(100%);
+}
+
+/* LIGHT THEME */
+
+html[data-theme='light'] .tasks-background {
+    opacity: 1;
+}
+
+html[data-theme='light'] .taskscontainer {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .main-logo {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .main-elementswrap {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .sketch {
+    filter: invert(100%);
+}
+
+/* REGWINDOW */
+html[data-theme='light'] .regwindow__titlediv {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .regwindow__bar {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .regwindow__form {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .regwindow__formlastchild {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .regwindow__formlast {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .regwindow__regbtn {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .regwindow__socials {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .regwindow__elements {
+    border: 2px solid black;
+}
+
+html[data-theme='light'] .regwindow__leftarrow {
+    filter: invert(100%);
+    background-color: black;
+}
+
+/* LOGWINDOW */
+html[data-theme='light'] .logwindow__titlediv {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .logwindow__bar {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .logwindow__form {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .logwindow__formlastchild {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .logform-btn {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .logwindow__socials {
+    filter: invert(100%);
+}
+
+html[data-theme='light'] .logwindow__elements {
+    border: 2px solid black;
+}
+
+html[data-theme='light'] .logwindow__leftarrow {
+    filter: invert(100%);
+    background-color: black;
+}

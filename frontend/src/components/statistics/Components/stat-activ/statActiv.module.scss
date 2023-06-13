@@ -1,0 +1,54 @@
+.main {
+    margin-top: 15px;
+    width: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 25px;
+    background: #22222244;
+    padding: 10px 20px;
+}
+
+.nav-exit svg {
+    margin-right: 3px;
+}
+
+.content {
+    margin-top: 3px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.content-tasks-cell {
+    border: 1px solid white;
+}
+
+.content-tasks-table-table table {
+    border-collapse: collapse;
+}
+
+.content-tasks-table-months span {
+    margin-right: 60px;
+}
+
+.content-tasks-table-columns {
+    margin-top: 30px;
+}
+
+.content-tasks-table-columns table {
+    border-collapse: collapse;
+}
+
+.content-tr1-column {
+    border: 1px solid white;
+    height: 60px;
+}
+
+.content-tr2-column {
+    border: 1px solid white;
+    font-size: 11px;
+}
+
+.content-math {
+    margin-top: 30px;
+}
