@@ -1,0 +1,99 @@
+2024-11-26 16:07:09,117 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2024-11-26 16:07:09,306 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getMe HTTP/11" 200 265
+2024-11-26 16:07:09,309 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2024-11-26 16:07:09,489 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=1&timeout=20 HTTP/11" 200 875
+2024-11-26 16:07:09,490 - __main__ - INFO - Обработка действия: Выбрать роль
+2024-11-26 16:07:09,490 - __main__ - INFO - Получена команда /start
+2024-11-26 16:07:09,490 - __main__ - INFO - Получена команда /start
+2024-11-26 16:07:09,491 - __main__ - DEBUG - Создание разметки ролей
+2024-11-26 16:07:09,491 - __main__ - DEBUG - Создание разметки ролей
+2024-11-26 16:07:09,495 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2024-11-26 16:07:09,497 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.telegram.org:443
+2024-11-26 16:07:09,701 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%AD%D1%82%D0%BE+%D0%B1%D0%BE%D1%82+%D0%B4%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B8+%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B9+%D0%BF%D0%BE+%D1%88%D0%B5%D0%B4%D0%B5%D0%B2%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9+%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B5%21+%D0%92%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%D1%80%D0%BE%D0%BB%D1%8C%3A&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0410%5Cu0434%5Cu043c%5Cu0438%5Cu043d%5Cu0438%5Cu0441%5Cu0442%5Cu0440%5Cu0430%5Cu0442%5Cu043e%5Cu0440%22%7D%2C+%7B%22text%22%3A+%22%5Cu0423%5Cu0447%5Cu0435%5Cu043d%5Cu0438%5Cu043a%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 776
+2024-11-26 16:07:09,720 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%AD%D1%82%D0%BE+%D0%B1%D0%BE%D1%82+%D0%B4%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B8+%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B9+%D0%BF%D0%BE+%D1%88%D0%B5%D0%B4%D0%B5%D0%B2%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9+%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B5%21+%D0%92%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%D1%80%D0%BE%D0%BB%D1%8C%3A&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0410%5Cu0434%5Cu043c%5Cu0438%5Cu043d%5Cu0438%5Cu0441%5Cu0442%5Cu0440%5Cu0430%5Cu0442%5Cu043e%5Cu0440%22%7D%2C+%7B%22text%22%3A+%22%5Cu0423%5Cu0447%5Cu0435%5Cu043d%5Cu0438%5Cu043a%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 776
+2024-11-26 16:07:11,720 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994176&timeout=20 HTTP/11" 200 461
+2024-11-26 16:07:11,720 - __main__ - INFO - Выбрана роль: Администратор
+2024-11-26 16:07:11,821 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D1%8B+%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D0%BB%D0%B8+%D1%80%D0%BE%D0%BB%D1%8C%3A+%D0%90%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80 HTTP/11" 200 461
+2024-11-26 16:07:11,821 - __main__ - INFO - Запрос логина для chat_id: 942583538
+2024-11-26 16:07:11,821 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:11,939 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5+%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 375
+2024-11-26 16:07:14,523 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994177&timeout=20 HTTP/11" 200 389
+2024-11-26 16:07:14,524 - __main__ - INFO - Запрос пароля для пользователя: admin1
+2024-11-26 16:07:14,524 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:14,525 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:14,609 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5+%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8C%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 381
+2024-11-26 16:07:15,932 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994178&timeout=20 HTTP/11" 200 388
+2024-11-26 16:07:15,933 - __main__ - INFO - Проверка учетных данных для пользователя: admin1
+2024-11-26 16:07:15,933 - __main__ - WARNING - Неправильная попытка входа: admin1
+2024-11-26 16:07:15,933 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:16,038 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%9D%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D1%8B%D0%B9+%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD+%D0%B8%D0%BB%D0%B8+%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8C.+%D0%9F%D0%BE%D0%BF%D1%80%D0%BE%D0%B1%D1%83%D0%B9%D1%82%D0%B5+%D0%B5%D1%89%D0%B5+%D1%80%D0%B0%D0%B7&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 536
+2024-11-26 16:07:16,038 - __main__ - INFO - Запрос логина для chat_id: 942583538
+2024-11-26 16:07:16,039 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:16,150 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5+%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 375
+2024-11-26 16:07:19,190 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994179&timeout=20 HTTP/11" 200 389
+2024-11-26 16:07:19,191 - __main__ - INFO - Запрос пароля для пользователя: admin1
+2024-11-26 16:07:19,191 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:19,191 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:19,273 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5+%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8C%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 381
+2024-11-26 16:07:22,814 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994180&timeout=20 HTTP/11" 200 392
+2024-11-26 16:07:22,815 - __main__ - INFO - Проверка учетных данных для пользователя: admin1
+2024-11-26 16:07:22,815 - __main__ - INFO - Отображение опций для chat_id: 942583538
+2024-11-26 16:07:22,815 - __main__ - DEBUG - Распределение опций в зависимости от роли пользователя
+2024-11-26 16:07:22,913 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%2C+%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0437%5Cu0430%5Cu0434%5Cu0430%5Cu043d%5Cu0438%5Cu0435%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 399
+2024-11-26 16:07:24,313 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994181&timeout=20 HTTP/11" 200 450
+2024-11-26 16:07:24,314 - __main__ - INFO - Обработка действия: Выбрать роль
+2024-11-26 16:07:24,314 - __main__ - INFO - Получена команда /start
+2024-11-26 16:07:24,314 - __main__ - DEBUG - Создание разметки ролей
+2024-11-26 16:07:24,406 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%AD%D1%82%D0%BE+%D0%B1%D0%BE%D1%82+%D0%B4%D0%BB%D1%8F+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B8+%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B9+%D0%BF%D0%BE+%D1%88%D0%B5%D0%B4%D0%B5%D0%B2%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9+%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B5%21+%D0%92%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%D1%80%D0%BE%D0%BB%D1%8C%3A&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0410%5Cu0434%5Cu043c%5Cu0438%5Cu043d%5Cu0438%5Cu0441%5Cu0442%5Cu0440%5Cu0430%5Cu0442%5Cu043e%5Cu0440%22%7D%2C+%7B%22text%22%3A+%22%5Cu0423%5Cu0447%5Cu0435%5Cu043d%5Cu0438%5Cu043a%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 776
+2024-11-26 16:07:25,700 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994182&timeout=20 HTTP/11" 200 461
+2024-11-26 16:07:25,701 - __main__ - INFO - Выбрана роль: Администратор
+2024-11-26 16:07:25,947 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D1%8B+%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D0%BB%D0%B8+%D1%80%D0%BE%D0%BB%D1%8C%3A+%D0%90%D0%B4%D0%BC%D0%B8%D0%BD%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80 HTTP/11" 200 461
+2024-11-26 16:07:25,948 - __main__ - INFO - Запрос логина для chat_id: 942583538
+2024-11-26 16:07:25,948 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:26,097 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5+%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 375
+2024-11-26 16:07:26,933 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994183&timeout=20 HTTP/11" 200 389
+2024-11-26 16:07:26,933 - __main__ - INFO - Запрос пароля для пользователя: dasdsa
+2024-11-26 16:07:26,934 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:26,934 - __main__ - WARNING - Неправильная попытка входа: dasdsa
+2024-11-26 16:07:26,934 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:27,015 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%9D%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D1%8B%D0%B9+%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD+%D0%B8%D0%BB%D0%B8+%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8C.+%D0%9F%D0%BE%D0%BF%D1%80%D0%BE%D0%B1%D1%83%D0%B9%D1%82%D0%B5+%D0%B5%D1%89%D0%B5+%D1%80%D0%B0%D0%B7&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 536
+2024-11-26 16:07:27,015 - __main__ - INFO - Запрос логина для chat_id: 942583538
+2024-11-26 16:07:27,015 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:27,112 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5+%D0%BB%D0%BE%D0%B3%D0%B8%D0%BD%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 375
+2024-11-26 16:07:29,482 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994184&timeout=20 HTTP/11" 200 389
+2024-11-26 16:07:29,482 - __main__ - INFO - Запрос пароля для пользователя: admin1
+2024-11-26 16:07:29,482 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:29,483 - __main__ - DEBUG - Создание разметки возврата к ролям
+2024-11-26 16:07:29,576 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5+%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8C%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 381
+2024-11-26 16:07:31,207 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994185&timeout=20 HTTP/11" 200 392
+2024-11-26 16:07:31,207 - __main__ - INFO - Проверка учетных данных для пользователя: admin1
+2024-11-26 16:07:31,207 - __main__ - INFO - Отображение опций для chat_id: 942583538
+2024-11-26 16:07:31,207 - __main__ - DEBUG - Распределение опций в зависимости от роли пользователя
+2024-11-26 16:07:31,320 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text=%D0%92%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D0%B5%3A+&reply_markup=%7B%22keyboard%22%3A+%5B%5B%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0440%5Cu043e%5Cu043b%5Cu044c%22%7D%2C+%7B%22text%22%3A+%22%5Cu0412%5Cu044b%5Cu0431%5Cu0440%5Cu0430%5Cu0442%5Cu044c+%5Cu0437%5Cu0430%5Cu0434%5Cu0430%5Cu043d%5Cu0438%5Cu0435%22%7D%5D%5D%2C+%22resize_keyboard%22%3A+true%7D HTTP/11" 200 399
+2024-11-26 16:07:32,427 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994186&timeout=20 HTTP/11" 200 468
+2024-11-26 16:07:32,427 - __main__ - INFO - Обработка действия: Выбрать задание
+2024-11-26 16:07:32,486 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "POST /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/sendMessage?chat_id=942583538&text= HTTP/11" 400 80
+2024-11-26 16:07:32,490 - TeleBot - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: message text is empty
+2024-11-26 16:07:32,490 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\__init__.py", line 1235, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\util.py", line 93, in run
+    task(*args, **kwargs)
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\__init__.py", line 9040, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "D:\Mathematics_Bot\main.py", line 145, in handle_action
+    bot.send_message(message.chat.id, GET_TASK_NAME)
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\__init__.py", line 1780, in send_message
+    apihelper.send_message(
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\apihelper.py", line 275, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\apihelper.py", line 168, in _make_request
+    json_result = _check_result(method_name, result)
+  File "D:\Mathematics_Bot\.venv\lib\site-packages\telebot\apihelper.py", line 195, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: message text is empty
+
+2024-11-26 16:07:52,488 - urllib3.connectionpool - DEBUG - https://api.telegram.org:443 "GET /bot7713602499:AAG7LJ7WP7hec_BCOaVTKAiwKf9GCjToydg/getUpdates?offset=758994187&timeout=20 HTTP/11" 200 23
