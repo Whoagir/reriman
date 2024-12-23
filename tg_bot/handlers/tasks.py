@@ -1,6 +1,6 @@
 import os
 from telegram import Update
-from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram.ext import CommandHandler, MessageHandler, filters, CallbackContext
 from telegram import InputMediaPhoto
 import random
 
@@ -23,8 +23,7 @@ async def select_task(update: Update, context: CallbackContext):
     await update.message.reply_text(f"Вы выбрали задание {selected_task}!")
 
 
-def get_select_task_handler():
-    return CommandHandler('select_task', select_task)
+get_select_task_handler = CommandHandler("select_task", select_task)
 
 
 async def send_task(update: Update, context: CallbackContext):
@@ -48,9 +47,9 @@ async def send_task(update: Update, context: CallbackContext):
         await update.message.reply_photo(photo=photo, caption=f"Задание {selected_task}: \nРешите задачу!")
 
 
-def get_send_task_handler():
-    return CommandHandler('send_task', send_task)
 
+
+get_send_task_handler = CommandHandler('send_task', send_task)
 
 async def check_answer(update: Update, context: CallbackContext):
     """Хендлер для проверки ответа."""
@@ -91,4 +90,7 @@ async def check_answer(update: Update, context: CallbackContext):
         await update.message.reply_text(f"Вы написали: {user_text}")
 
     def get_handle_text_handler():
-        return MessageHandler(Filters.text & ~Filters.command, handle_text)
+        return MessageHandler(filters.text & ~filters.command, handle_text)
+
+
+get_check_answer_handler = CommandHandler('check_answer', check_answer)
