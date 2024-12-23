@@ -1,69 +1,105 @@
-import telebot
-from telebot import types
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 import os
+import random
 
-BOT_TOKEN = '7928272085:AAEykM3TKRf14aAnHU0kQyebGK05i5SyvcU'
-bot = telebot.TeleBot(BOT_TOKEN)
+# Хранилище для статистики пользователей
+user_data = {}
 
-# tasks = {
-#     1: 'tasks/task1.png',
-#     2: 'tasks/task2.png',
-#     3: 'tasks/task3.png',
-#     # Добавьте до 12 заданий
-# }
-#
-# answers = {
-#     1: '1.10 2.12 3.14',
-#     2: '1.20 2.21 3.22',
-#     3: '1.30 2.32 3.34',
-#     # Добавьте ответы для 12 заданий
-# }
+# Путь к заданиям и ответам
+TASK_IMG_PATH = "task_img/"
+TASK_ANS_PATH = "task_ans/"
 
 
-# Предположим, что задания хранятся в папках по прототипам
-# Например: tasks/prototype1/task1.png, tasks/prototype1/task2.png, и т.д.
-task_directory = 'tasks'
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Приветствие и старт работы."""
+    user_id = update.effective_chat.id
+    if user_id not in user_data:
+        user_data[user_id] = {"correct": 0, "total": 0}
+    await update.message.reply_text(
+        "Привет! Я бот для автоматической проверки заданий. Напишите /gettask, чтобы получить задание!")
 
-def get_prototype_tasks(prototype_number):
-    # Функция для получения списка файлов в папке прототипа
-    prototype_path = os.path.join(task_directory, f'prototype{prototype_number}')
-    return sorted(os.listdir(prototype_path))
 
-@bot.message_handler(commands=['start'])
-def send_welcome(message):
-    markup = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
-    for num in range(1, 13):
-        markup.add(types.KeyboardButton(f"Прототип {num}"))
-    bot.send_message(message.chat.id, "Выберите прототип задания:", reply_markup=markup)
-
-@bot.message_handler(func=lambda message: "Прототип" in message.text)
-def choose_prototype(message):
+async def gettask(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Позволить пользователю выбрать задание вручную."""
     try:
-        prototype_num = int(message.text.split()[1])
-        task_buttons = ["Ввести номер задания", "Получить список заданий"]
-        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        markup.add(*task_buttons)
-        bot.send_message(message.chat.id, f"Вы выбрали прототип {prototype_num}. Что сделать дальше?", reply_markup=markup)
-        bot.register_next_step_handler(message, handle_task_choice, prototype_num)
+        # Получаем список доступных папок
+        folders = os.listdir(TASK_IMG_PATH)
+        folder_list = "\n".join(f"*{i + 1}.* {folder}" for i, folder in enumerate(folders))
+        context.user_data["available_folders"] = folders
+
+        # Предлагаем пользователю выбрать папку
+        await update.message.reply_text(
+            f"Выберите папку с заданиями, отправив её номер:\n{folder_list}"
+        )
+
     except Exception as e:
-        bot.send_message(message.chat.id, "Ошибка при выборе прототипа")
+        await update.message.reply_text("Не удалось загрузить папки. Проверьте структуру папок!")
+        print(f"Ошибка: {e}")
 
-def handle_task_choice(message, prototype_num):
-    if message.text == "Ввести номер задания":
-        bot.send_message(message.chat.id, f"Введите номер задания для прототипа {prototype_num}:")
-        bot.register_next_step_handler(message, send_task, prototype_num)
-    elif message.text == "Получить список заданий":
-        tasks = get_prototype_tasks(prototype_num)
-        bot.send_message(message.chat.id, "Доступные задания:\n" + "\n".join(tasks))
 
-def send_task(message, prototype_num):
+async def check_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Проверка ответа ученика."""
+    user_id = update.effective_chat.id
+    if "current_task" not in context.user_data:
+        await update.message.reply_text("Сначала получите задание с помощью команды /gettask.")
+        return
+
+    # Получаем ответ пользователя и текущую задачу
     try:
-        task_num = message.text.strip()
-        task_path = os.path.join(task_directory, f'prototype{prototype_num}', f'{task_num}.png')
-        bot.send_photo(message.chat.id, open(task_path, 'rb'))
-    except Exception as e:
-        bot.send_message(message.chat.id, "Ошибка при получении задания")
+        user_answer = int(update.message.text.split()[1])
+        folder, task_number = context.user_data["current_task"]
 
-if __name__ == '__main__':
+        # Читаем правильный ответ из txt файла
+        with open(f"{TASK_ANS_PATH}/{folder}/ans.txt", "r") as ans_file:
+            answers = {line.split('.')[0]: int(line.split('.')[1].strip()) for line in ans_file.readlines()}
+
+        # Сравниваем ответ
+        correct_answer = answers.get(task_number)
+        if correct_answer == user_answer:
+            user_data[user_id]["correct"] += 1
+            await update.message.reply_text("✅ Правильно! Отличная работа!")
+        else:
+            await update.message.reply_text(f"❌ Неправильно! Правильный ответ: {correct_answer}.")
+
+        user_data[user_id]["total"] += 1
+        context.user_data.pop("current_task")  # Удаляем данные о текущей задаче
+    except ValueError:
+        await update.message.reply_text("Пожалуйста, укажите ваш ответ правильно в формате: 'ответ X', где X — число.")
+    except Exception as ex:
+        await update.message.reply_text("Не удалось проверить ваш ответ. Проверьте правильность ввода.")
+        print("Ошибка проверки ответа:", ex)
+
+
+async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Вывод статистики ученика."""
+    user_id = update.effective_chat.id
+    if user_id in user_data:
+        correct = user_data[user_id]["correct"]
+        total = user_data[user_id]["total"]
+        await update.message.reply_text(f"📊 Ваша статистика: {correct}/{total} (правильных/всего).")
+    else:
+        await update.message.reply_text("Вы ещё не решали задания!")
+
+
+def main():
+    """Главная функция запуска бота."""
+    TOKEN = "7936087407:AAGJVQlJe8LHgrFUxNQTOqG9QRGHGdAhhzE"
+
+    # Создание приложения
+
+    application = ApplicationBuilder().token(TOKEN).build()
+
+    # Обработчики команд
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("gettask", gettask))
+    application.add_handler(CommandHandler("stats", stats))
+
+    # Обработчик текстовых сообщений
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, check_answer))
+
     print("Бот запущен...")
-    bot.infinity_polling()
+    application.run_polling()
+
+if __name__ == "__main__":
+    main()
