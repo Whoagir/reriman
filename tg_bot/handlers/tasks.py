@@ -1,108 +1,94 @@
 import os
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
-from telegram.ext import CallbackQueryHandler, CommandHandler, MessageHandler, filters
-from handlers.utils import load_answers, save_user_statistics
-from config import TASK_IMG_PATH, TASK_ANS_PATH
+from telegram import Update
+from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram import InputMediaPhoto
+import random
 
-# Словарь для хранения состояния каждого пользователя
-user_states = {}
-
-async def select_folder(update: Update, context):
-    """Отправляет пользователю список доступных папок с заданиями."""
-    folders = os.listdir(TASK_IMG_PATH)
-    folders = [folder for folder in folders if os.path.isdir(os.path.join(TASK_IMG_PATH, folder))]
-
-    keyboard = [
-        [InlineKeyboardButton(f"Набор {folder}", callback_data=f"select_folder_{folder}")]
-        for folder in folders
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("Выберите набор заданий:", reply_markup=reply_markup)
+TASKS_DIR = "task_img"  # Папка с изображениями заданий
+ANSWERS_DIR = "task_ans"  # Папка с ответами на задания
 
 
-async def select_task(update: Update, context):
-    """Отправляет пользователю список доступных заданий в выбранной папке."""
-    query = update.callback_query
-    folder_id = query.data.split("_")[2]
+async def select_task(update: Update, context: CallbackContext):
+    """Хендлер для выбора задания."""
+    # Считываем все доступные задания
+    tasks = os.listdir(TASKS_DIR)
 
-    folder_path = os.path.join(TASK_IMG_PATH, folder_id)
-    tasks = os.listdir(folder_path)
-    tasks = [task for task in tasks if task.endswith(".png")]
+    # Выбираем случайное задание (например, можем просто выбрать номер)
+    selected_task = random.choice(tasks)
 
-    keyboard = [
-        [InlineKeyboardButton(f"Задание {task.split('.')[0]}", callback_data=f"select_task_{folder_id}_{task.split('.')[0]}")]
-        for task in tasks
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await query.edit_message_text(f"Вы выбрали набор {folder_id}. Теперь выберите задание:", reply_markup=reply_markup)
+    # Сохраняем выбранное задание в контекст пользователя
+    context.user_data['selected_task'] = selected_task
+
+    # Отправляем пользователю сообщение с номером задания
+    await update.message.reply_text(f"Вы выбрали задание {selected_task}!")
 
 
-async def send_task(update: Update, context):
-    """Отправляет пользователю картинку с заданием и просит ввести ответ."""
-    query = update.callback_query
-    _, folder_id, task_id = query.data.split("_")
-
-    task_path = os.path.join(TASK_IMG_PATH, folder_id, f"{task_id}.png")
-
-    if os.path.exists(task_path):
-        # Сохраняем текущий контекст задания в словаре user_states
-        user_states[query.from_user.id] = {
-            "folder_id": folder_id,
-            "task_id": task_id
-        }
-
-        with open(task_path, "rb") as task_file:
-            await query.message.reply_photo(
-                photo=task_file,
-                caption=f"Это задание {task_id} из набора {folder_id}. "
-                        f"Введите ваш ответ в формате:\n*ответ Х*, где Х — ваш ответ."
-            )
-    else:
-        await query.message.reply_text("Произошла ошибка, задание не найдено!")
+def get_select_task_handler():
+    return CommandHandler('select_task', select_task)
 
 
-async def check_answer(update: Update, context):
-    """Проверяет ответ пользователя и обновляет статистику."""
-    user_id = update.message.from_user.id
+async def send_task(update: Update, context: CallbackContext):
+    """Хендлер для отправки задания."""
+    # Проверяем, выбрал ли пользователь задание
+    selected_task = context.user_data.get('selected_task', None)
 
-    if user_id not in user_states:
-        await update.message.reply_text("Вы ещё не выбрали задание. Используйте команду /start для начала.")
+    if selected_task is None:
+        await update.message.reply_text("Сначала выберите задание командой /select_task!")
         return
 
-    # Получаем данные о последнем задании пользователя
-    folder_id = user_states[user_id]["folder_id"]
-    task_id = user_states[user_id]["task_id"]
+    # Путь к изображению выбранного задания
+    task_image_path = os.path.join(TASKS_DIR, selected_task, f"1.png")  # Например, отправим 1.png
 
-    # Загружаем ответы из соответствующего файла
-    answers_path = os.path.join(TASK_ANS_PATH, folder_id, "ans.txt")
-    answers = load_answers(answers_path)
-
-    if not answers:
-        await update.message.reply_text("К сожалению, правильные ответы отсутствуют для этого задания.")
+    if not os.path.exists(task_image_path):
+        await update.message.reply_text("Задание не найдено.")
         return
 
-    user_answer = update.message.text.lower().replace("ответ", "").strip()
+    # Отправляем картинку задания
+    with open(task_image_path, 'rb') as photo:
+        await update.message.reply_photo(photo=photo, caption=f"Задание {selected_task}: \nРешите задачу!")
 
-    # Проверяем ответ
-    correct_answer = answers.get(task_id)
-    if correct_answer is None:
-        await update.message.reply_text("К сожалению, это задание не имеет правильного ответа в базе.")
+
+def get_send_task_handler():
+    return CommandHandler('send_task', send_task)
+
+
+async def check_answer(update: Update, context: CallbackContext):
+    """Хендлер для проверки ответа."""
+    # Проверяем, выбрал ли пользователь задание
+    selected_task = context.user_data.get('selected_task', None)
+
+    if selected_task is None:
+        await update.message.reply_text("Сначала выберите задание командой /select_task!")
         return
+
+    # Получаем путь к файлу с ответами
+    answer_file_path = os.path.join(ANSWERS_DIR, selected_task, 'ans.txt')
+
+    if not os.path.exists(answer_file_path):
+        await update.message.reply_text("Ответы для этого задания не найдены.")
+        return
+
+    # Читаем правильный ответ из файла
+    with open(answer_file_path, 'r', encoding='utf-8') as file:
+        correct_answer = file.read().strip()
+
+    # Получаем ответ пользователя
+    user_answer = update.message.text.strip()
 
     if user_answer == correct_answer:
-        await update.message.reply_text("Правильно! Вы молодец 👏")
-        save_user_statistics(user_id, folder_id, task_id, True)
+        await update.message.reply_text(f"Ответ на задание {selected_task} правильный!")
     else:
 
-        await update.message.reply_text(f"Неправильно. Правильный ответ: {correct_answer}")
-        save_user_statistics(user_id, folder_id, task_id, False)
+        await update.message.reply_text(f"Ответ на задание {selected_task} неправильный. Попробуйте снова.")
 
-        # Сбрасываем состояние пользователя после проверки ответа
-    user_states.pop(user_id, None)
+    def get_check_answer_handler():
+        return CommandHandler('check_answer', check_answer)
 
-    # Хэндлеры для задач
-    select_folder_handler = CommandHandler("start", select_folder)
-    select_task_handler = CallbackQueryHandler(select_task, pattern=r"^select_folder_\d+$")
-    send_task_handler = CallbackQueryHandler(send_task, pattern=r"^select_task_\d+_\d+$")
-    check_answer_handler = MessageHandler(filters.TEXT & ~filters.COMMAND, check_answer)
+    async def handle_text(update: Update, context: CallbackContext):
+        """Хендлер для текста, отправляемого пользователем."""
+        # Просто повторяем текст пользователя, если нет команды
+        user_text = update.message.text.strip()
+        await update.message.reply_text(f"Вы написали: {user_text}")
 
+    def get_handle_text_handler():
+        return MessageHandler(Filters.text & ~Filters.command, handle_text)
