@@ -1,8 +1,7 @@
 import os
 from telegram import Update
-from telegram.ext import CommandHandler, MessageHandler, filters, CallbackContext
-from telegram import InputMediaPhoto
-import random
+from telegram.ext import CommandHandler, MessageHandler, filters, CallbackContext, CallbackQueryHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 TASKS_DIR = "task_img"  # Папка с изображениями заданий
 ANSWERS_DIR = "task_ans"  # Папка с ответами на задания
@@ -10,20 +9,36 @@ ANSWERS_DIR = "task_ans"  # Папка с ответами на задания
 
 async def select_task(update: Update, context: CallbackContext):
     """Хендлер для выбора задания."""
-    # Считываем все доступные задания
+    # Считываем все доступные задания из папок
     tasks = os.listdir(TASKS_DIR)
 
-    # Выбираем случайное задание (например, можем просто выбрать номер)
-    selected_task = random.choice(tasks)
+    # Создаем список кнопок
+    keyboard = [[InlineKeyboardButton(task, callback_data=task)] for task in tasks]
 
-    # Сохраняем выбранное задание в контекст пользователя
-    context.user_data['selected_task'] = selected_task
+    # Создаем разметку клавиатуры
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
-    # Отправляем пользователю сообщение с номером задания
-    await update.message.reply_text(f"Вы выбрали задание {selected_task}!")
+    # Отправляем сообщение с клавиатурой для выбора задания
+    await update.message.reply_text("Выберите задание:", reply_markup=reply_markup)
 
+# Хэндлер для обработки нажатия на кнопку
+async def handle_task_selection(update: Update, context: CallbackContext):
+    """Обрабатывает выбор задания."""
+    query = update.callback_query
+    await query.answer()  # Подтверждаем нажатие на кнопку
 
+    # Получаем номер выбранной папки из callback_data
+    selected_directory = query.data
+
+    # Сохраняем выбранную папку в контекст пользователя
+    context.user_data['selected_directory'] = selected_directory
+
+    # Уведомляем пользователя о выбранной папке
+    await query.edit_message_text(f"Вы выбрали папку: {selected_directory}!")
+
+# Регистрируем хэндлеры
 get_select_task_handler = CommandHandler("select_task", select_task)
+handle_task_selection_handler = CallbackQueryHandler(handle_task_selection)
 
 
 async def send_task(update: Update, context: CallbackContext):
