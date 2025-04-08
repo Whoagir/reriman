@@ -7,9 +7,9 @@ TASKS_DIR = "task_img"  # Папка с изображениями задани�
 ANSWERS_DIR = "task_ans"  # Папка с ответами на задания
 
 
-async def select_task(update: Update, context: CallbackContext):
-    """Хендлер для выбора задания."""
-    # Считываем все доступные задания из папок
+async def select_prototype(update: Update, context: CallbackContext):
+    """Хэндлер для выбора прототипа (папки с заданиями)"""
+    # Считываем все доступные прототипы заданий
     tasks = os.listdir(TASKS_DIR)
 
     # Создаем список кнопок
@@ -19,11 +19,12 @@ async def select_task(update: Update, context: CallbackContext):
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     # Отправляем сообщение с клавиатурой для выбора задания
-    await update.message.reply_text("Выберите задание:", reply_markup=reply_markup)
+    await update.message.reply_text("Выберите папку:", reply_markup=reply_markup)
+
 
 # Хэндлер для обработки нажатия на кнопку
-async def handle_task_selection(update: Update, context: CallbackContext):
-    """Обрабатывает выбор задания."""
+async def handle_prototype_selection(update: Update, context: CallbackContext):
+    """Обрабатывает выбор прототипа"""
     query = update.callback_query
     await query.answer()  # Подтверждаем нажатие на кнопку
 
@@ -36,9 +37,50 @@ async def handle_task_selection(update: Update, context: CallbackContext):
     # Уведомляем пользователя о выбранной папке
     await query.edit_message_text(f"Вы выбрали папку: {selected_directory}!")
 
-# Регистрируем хэндлеры
-get_select_task_handler = CommandHandler("select_task", select_task)
-handle_task_selection_handler = CallbackQueryHandler(handle_task_selection)
+    # После выбора папки вызываем хэндлер для выбора задачи
+    await select_task(update, context)
+
+
+async def select_task(update: Update, context: CallbackContext):
+    """Хэндлер для выбора задачи"""
+    selected_directory = context.user_data.get('selected_directory')
+    if not selected_directory:
+        await update.message.reply_text("Сначала выберите папку с заданиями.")
+        return
+
+    # Считываем все задачи из выбранной папки
+    tasks = os.listdir(f"{TASKS_DIR}/{selected_directory}")
+
+    # Создаем список кнопок
+    keyboard = [[InlineKeyboardButton(task, callback_data=task)] for task in tasks]
+
+    # Создаем разметку клавиатуры
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    # Отправляем сообщение с клавиатурой для выбора задания
+    await update.message.reply_text("Выберите задачу:", reply_markup=reply_markup)
+
+
+# Хэндлер для обработки нажатия на кнопку
+async def handle_task_selection(update: Update, context: CallbackContext):
+    """Обрабатывает выбор задачи"""
+    query = update.callback_query
+    await query.answer()  # Подтверждаем нажатие на кнопку
+
+    # Получаем название выбранной задачи из callback_data
+    selected_task = query.data
+
+    # Сохраняем выбранную задачу в контекст пользователя
+    context.user_data['selected_task'] = selected_task
+
+    # Уведомляем пользователя о выбранной задаче
+    await query.edit_message_text(f"Вы выбрали задачу: {selected_task}!")
+
+
+
+
+
+
 
 
 async def send_task(update: Update, context: CallbackContext):
@@ -64,7 +106,7 @@ async def send_task(update: Update, context: CallbackContext):
 
 
 
-get_send_task_handler = CommandHandler('send_task', send_task)
+
 
 async def check_answer(update: Update, context: CallbackContext):
     """Хендлер для проверки ответа."""
@@ -109,3 +151,8 @@ async def check_answer(update: Update, context: CallbackContext):
 
 
 get_check_answer_handler = CommandHandler('check_answer', check_answer)
+# Регистрируем хэндлеры
+get_select_prototype_handler = CommandHandler("select_prototype", select_prototype)
+handle_prototype_selection_handler = CallbackQueryHandler(handle_prototype_selection)
+handle_task_selection_handler = CallbackQueryHandler(handle_task_selection)
+get_send_task_handler = CommandHandler('send_task', send_task)
